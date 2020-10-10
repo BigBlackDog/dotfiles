@@ -38,9 +38,16 @@ call plug#end()
 " eye-candy
 colorscheme wombat256mod
 let g:airline_powerline_fonts = 1
+set listchars=tab:»\ ,eol:¬
 
 " line numbers
 set nu
+
+" indent using 2 spaces
+set expandtab
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 
 " highlight current line
 set cursorline

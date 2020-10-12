@@ -24,7 +24,7 @@ Plug 'https://github.com/arcticicestudio/nord-vim.git'
 "telescope
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-lua/telescope.nvim' 
+Plug 'nvim-lua/telescope.nvim'
 
 "git
 Plug 'tpope/vim-fugitive'
@@ -86,10 +86,11 @@ noremap <silent> <CTRL-k> :wincmd k<CR>
 noremap <silent> <CTRL-l> :wincmd l<CR>
 
 " telescope
-nnoremap <Leader>g <cmd>lua require'telescope.builtin'.git_files{}<CR>
 " Searches over files in a git folder. Note: This does not work outside a git repo folder.
-nnoremap <Leader>p <cmd>lua require'telescope.builtin'.find_files{}<CR>
+nnoremap <Leader>g <cmd>lua require'telescope.builtin'.git_files{}<CR>
 " Search over files in your cwd current working directory.
+nnoremap <Leader>f <cmd>lua require'telescope.builtin'.find_files{}<CR>
+
 nnoremap <Leader>b <cmd>lua require'telescope.builtin'.buffers{}<CR>
 nnoremap <Leader>gr <cmd>lua require'telescope.builtin'.live_grep{}<CR>
 

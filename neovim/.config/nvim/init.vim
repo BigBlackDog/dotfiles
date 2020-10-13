@@ -106,7 +106,7 @@ nnoremap <Leader>g <cmd>lua require'telescope.builtin'.git_files{}<CR>
 " Search over files in your cwd current working directory.
 nnoremap <Leader>f <cmd>lua require'telescope.builtin'.find_files{}<CR>
 
-nnoremap <Leader>b <cmd>lua require'telescope.builtin'.buffers{}<CR>
+nnoremap <Leader>b <cmd>lua require'telescope.builtin'.buffers{show_all_buffers = true}<CR>
 nnoremap <Leader>gr <cmd>lua require'telescope.builtin'.live_grep{}<CR>
 
 

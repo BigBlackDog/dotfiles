@@ -43,6 +43,13 @@ set listchars=tab:»\ ,eol:¬
 " line numbers
 set nu
 
+" folding
+" enable folding (https://bitcrowd.dev/folding-sections-of-markdown-in-vim)
+" is said to be undocumented so far ...
+let g:markdown_folding = 1
+" startup markdown files with all folds open
+au FileType markdown setlocal foldlevel=99
+
 " indent using 2 spaces
 set expandtab
 set tabstop=2

@@ -29,6 +29,9 @@ Plug 'nvim-lua/telescope.nvim'
 "git
 Plug 'tpope/vim-fugitive'
 
+"little helpers
+Plug 'tpope/vim-surround'
+
 "statusbar
 Plug 'vim-airline/vim-airline'
 Plug 'ryanoasis/vim-devicons'
@@ -49,6 +52,11 @@ set nu
 let g:markdown_folding = 1
 " startup markdown files with all folds open
 au FileType markdown setlocal foldlevel=99
+
+" make vim-surround ask you for input to use as surrounding
+" e.g. make visual selection and hit Sm then enter ``` to make markdown code
+" section
+let g:surround_{char2nr('m')} = "\1Surround: \1\r\1\1"
 
 " indent using 2 spaces
 set expandtab

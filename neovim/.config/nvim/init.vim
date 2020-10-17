@@ -77,6 +77,9 @@ let mapleader = ","
 " don't bend your fingers
 inoremap jj <ESC>
 
+" sometimes we still need the mouse
+set mouse=a
+
 " jump around in help
 nnoremap ö <c-]>
 nnoremap Ö <c-t>

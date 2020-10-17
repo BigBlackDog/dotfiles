@@ -45,6 +45,7 @@ set listchars=tab:»\ ,eol:¬
 
 " line numbers
 set nu
+set relativenumber
 
 " folding
 " enable folding (https://bitcrowd.dev/folding-sections-of-markdown-in-vim)
@@ -75,9 +76,6 @@ let mapleader = ","
 
 " don't bend your fingers
 inoremap jj <ESC>
-
-" sometimes we still need the mouse...
-set mouse=a
 
 " jump around in help
 nnoremap ö <c-]>

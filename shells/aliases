@@ -1,0 +1,2 @@
+alias ecvim='nvim $HOME/.config/nvim/init.vim'
+alias eci3='nvim $HOME/.i3/config'

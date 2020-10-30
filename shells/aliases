@@ -1,2 +1,10 @@
+
+# edit configuration files
+
 alias ecvim='nvim $HOME/.config/nvim/init.vim'
 alias eci3='nvim $HOME/.i3/config'
+
+# shortcuts to current work
+
+alias edwork='nvim $HOME/Dropbox/texte/doing.md'
+alias edtech='nvim $HOME/Dropbox/texte/tech-doing.md'

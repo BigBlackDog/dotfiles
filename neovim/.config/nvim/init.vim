@@ -113,4 +113,10 @@ nnoremap <Leader>f <cmd>lua require'telescope.builtin'.find_files{}<CR>
 nnoremap <Leader>b <cmd>lua require'telescope.builtin'.buffers{show_all_buffers = true}<CR>
 nnoremap <Leader>gr <cmd>lua require'telescope.builtin'.live_grep{}<CR>
 
-
+" this is just to make transparancy work on linux
+" using i3, picom and alacritty
+" I should review that and use an autocmd
+" https://stackoverflow.com/questions/37712730/set-vim-background-transparent
+set t_ut=
+set t_Co=256
+hi Normal guibg=NONE ctermbg=NONE

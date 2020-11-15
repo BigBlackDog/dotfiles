@@ -5,3 +5,5 @@ cp --verbose i3/config $HOME/.i3/
 cp --verbose shells/zshrc $HOME/.zshrc
 cp --verbose shells/aliases $HOME/.aliases
 cp --verbose tmux/tmux.conf $HOME/.tmux.conf
+cp --verbose alacritty/.config/alacritty/alacritty.yml $HOME/.config/alacritty/
+cp --verbose picom/.config/picom.conf $HOME/.config/

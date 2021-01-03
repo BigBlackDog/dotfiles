@@ -1,3 +1,5 @@
+alias nv=nvim
+alias vi=nvim
 
 # edit configuration files
 

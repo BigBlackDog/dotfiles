@@ -1,6 +1,49 @@
 "Plugin management
 "done with vim-plug from https://github.com/junegunn/vim-plug
+
+if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
+  echo "Downloading junegunn/vim-plug to manage plugins..."
+  silent !mkdir -p ~/.config/nvim/autoload/
+  silent !curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" > ~/.config/nvim/autoload/plug.vim
+  autocmd VimEnter * PlugInstall
+endif
+
 call plug#begin(stdpath('data'))
+
+"Snipptes
+Plug 'SirVer/ultisnips'
+
+"go
+Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries' }
+
+" Neovim LSP Autocompletion, Diagnostic Stuff
+Plug 'neovim/nvim-lsp'
+Plug 'nvim-lua/completion-nvim'
+Plug 'nvim-lua/diagnostic-nvim'
+Plug 'steelsojka/completion-buffers'
+Plug 'voldikss/vim-floaterm'
+
+"telescope
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/telescope.nvim'
+
+"git
+Plug 'tpope/vim-fugitive'
+
+"little helpers
+Plug 'tpope/vim-surround'
+
+"statusbar
+Plug 'vim-airline/vim-airline'
+Plug 'ryanoasis/vim-devicons'
+
+"developers, developers, developers, ...
+Plug 'neovim/nvim-lsp'
+"Plug 'Shougo/deoplete.nvim'
+
+"rust
+"Plug 'Chiel92/vim-autoformat'
 
 "colors
 Plug 'https://github.com/vim-scripts/wombat256.vim.git'
@@ -21,31 +64,26 @@ Plug 'https://github.com/fxn/vim-monochrome.git'
 Plug 'https://github.com/KKPMW/distilled-vim.git'
 Plug 'https://github.com/arcticicestudio/nord-vim.git'
 
-"telescope
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-lua/telescope.nvim'
-
-"git
-Plug 'tpope/vim-fugitive'
-
-"little helpers
-Plug 'tpope/vim-surround'
-
-"statusbar
-Plug 'vim-airline/vim-airline'
-Plug 'ryanoasis/vim-devicons'
-
 call plug#end()
+
+" this is just to make transparancy work on linux
+" using i3, picom and alacritty
+" I should review that and use an autocmd
+" https://stackoverflow.com/questions/37712730/set-vim-background-transparent
+set t_ut=
+set t_Co=256
+hi Normal guibg=NONE ctermbg=NONE
+
+lua require 'init'
 
 " eye-candy
 colorscheme wombat256mod
 let g:airline_powerline_fonts = 1
 set listchars=tab:»\ ,eol:¬
 
-" line numbers
-set nu
-set relativenumber
+" line numbers - we don't want them
+set nonu
+set norelativenumber
 
 " folding
 " enable folding (https://bitcrowd.dev/folding-sections-of-markdown-in-vim)
@@ -113,10 +151,71 @@ nnoremap <Leader>f <cmd>lua require'telescope.builtin'.find_files{}<CR>
 nnoremap <Leader>b <cmd>lua require'telescope.builtin'.buffers{show_all_buffers = true}<CR>
 nnoremap <Leader>gr <cmd>lua require'telescope.builtin'.live_grep{}<CR>
 
-" this is just to make transparancy work on linux
-" using i3, picom and alacritty
-" I should review that and use an autocmd
-" https://stackoverflow.com/questions/37712730/set-vim-background-transparent
-set t_ut=
-set t_Co=256
-hi Normal guibg=NONE ctermbg=NONE
+" completion settings
+inoremap <silent><expr> <c-p> completion#trigger_completion()
+
+function! CheckBackSpace() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <TAB>
+  \ pumvisible() ? "\<C-n>" :
+  \ CheckBackSpace() ? "\<TAB>" :
+  \ completion#trigger_completion()
+
+" This is very important to be loaded here
+" or Tab will not work, for completion
+let g:UltiSnipsExpandTrigger = "<S-Tab>"
+
+autocmd BufEnter * lua require'completion'.on_attach()
+
+" I either want it off, or the trigger higher | default = 1
+let g:completion_trigger_keyword_length = 3
+
+" Not Sure if I want popping Up
+let g:completion_enable_auto_popup      = 1
+
+let g:completion_enable_auto_signature  = 1
+
+let g:completion_enable_auto_hover      = 0
+
+let g:completion_matching_ignore_case   = 0
+
+let g:completion_enable_snippet         = 'UltiSnips'
+
+
+" :help hl-LspDiagnosticsError
+highlight LspDiagnosticsError guibg=#D7001B
+
+let g:diagnostic_enable_virtual_text = 1
+
+let g:diagnostic_insert_delay = 1
+
+let g:diagnostic_auto_popup_while_jump = 0
+
+let g:diagnostic_virtual_text_prefix = ' '
+
+let g:diagnostic_trimmed_virtual_text = '80'
+
+let g:space_before_virtual_text = 5
+
+let g:diagnostic_show_sign = 0
+
+let g:diagnostic_enable_underline = 0
+
+let g:diagnostic_sign_priority = 20
+
+
+
+" These settings are from the following Repo:
+" https://github.com/nvim-lua/completion-nvim
+
+" Set completeopt to have a better completion experience
+set completeopt=menuone,noinsert,noselect
+
+" hmmmm didn't do what I want
+set completeopt-=preview
+
+" Avoid showing message extra message when using completion
+set shortmess+=c

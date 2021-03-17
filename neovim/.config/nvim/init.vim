@@ -63,6 +63,7 @@ Plug 'https://github.com/pgdouyon/vim-yin-yang.git'
 Plug 'https://github.com/fxn/vim-monochrome.git'
 Plug 'https://github.com/KKPMW/distilled-vim.git'
 Plug 'https://github.com/arcticicestudio/nord-vim.git'
+Plug 'gruvbox-community/gruvbox'
 
 call plug#end()
 
@@ -85,6 +86,15 @@ set listchars=tab:»\ ,eol:¬
 set nonu
 set norelativenumber
 
+"make room for linters and the like on the left
+set signcolumn=yes
+
+" no highlighting after search
+set nohlsearch
+
+" start scrolling lines before the cursor hits top or bottom
+set scrolloff=8
+
 " folding
 " enable folding (https://bitcrowd.dev/folding-sections-of-markdown-in-vim)
 " is said to be undocumented so far ...
@@ -102,6 +112,7 @@ set expandtab
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
+set smartindent
 
 " highlight current line
 set cursorline
@@ -117,6 +128,10 @@ inoremap jj <ESC>
 
 " sometimes we still need the mouse
 set mouse=a
+
+" move visual blocks up and down
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
 
 " jump around in help
 nnoremap ö <c-]>

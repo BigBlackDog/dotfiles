@@ -67,33 +67,10 @@ Plug 'gruvbox-community/gruvbox'
 
 call plug#end()
 
-" this is just to make transparancy work on linux
-" using i3, picom and alacritty
-" I should review that and use an autocmd
-" https://stackoverflow.com/questions/37712730/set-vim-background-transparent
-set t_ut=
-set t_Co=256
-hi Normal guibg=NONE ctermbg=NONE
-
 lua require 'init'
 
 " eye-candy
 colorscheme wombat256mod
-let g:airline_powerline_fonts = 1
-set listchars=tab:»\ ,eol:¬
-
-" line numbers - we don't want them
-set nonu
-set norelativenumber
-
-"make room for linters and the like on the left
-set signcolumn=yes
-
-" no highlighting after search
-set nohlsearch
-
-" start scrolling lines before the cursor hits top or bottom
-set scrolloff=8
 
 " folding
 " enable folding (https://bitcrowd.dev/folding-sections-of-markdown-in-vim)
@@ -107,64 +84,7 @@ au FileType markdown setlocal foldlevel=99
 " section
 let g:surround_{char2nr('m')} = "\1Surround: \1\r\1\1"
 
-" indent using 2 spaces
-set expandtab
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
-set smartindent
-
-" highlight current line
-set cursorline
-
-" utf-8 encoding
-set encoding=utf8
-set ffs=unix,dos "Default filetypes
-
 let mapleader = ","
-
-" don't bend your fingers
-inoremap jj <ESC>
-
-" sometimes we still need the mouse
-set mouse=a
-
-" move visual blocks up and down
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
-
-" jump around in help
-nnoremap ö <c-]>
-nnoremap Ö <c-t>
-
-" Maps to make handling windows a bit easier
-"===== buffers =====
-map <Leader>bd :bd<CR>
-map <Leader>bdd :bd!<CR>
-map <Leader>bl :ls<CR>
-map <Leader>bn :bn<CR>
-map <Leader>bp :bp<CR>
-
-"===== windows =====
-" Smart way to move btw. windows
-map <C-j> <C-W>j "to the left
-map <C-k> <C-W>k "up
-map <C-h> <C-W>h "down
-map <C-l> <C-W>l "to the right
-
-noremap <silent> <CTRL-h> :wincmd h<CR>
-noremap <silent> <CTRL-j> :wincmd j<CR>
-noremap <silent> <CTRL-k> :wincmd k<CR>
-noremap <silent> <CTRL-l> :wincmd l<CR>
-
-" telescope
-" Searches over files in a git folder. Note: This does not work outside a git repo folder.
-nnoremap <Leader>g <cmd>lua require'telescope.builtin'.git_files{}<CR>
-" Search over files in your cwd current working directory.
-nnoremap <Leader>f <cmd>lua require'telescope.builtin'.find_files{}<CR>
-
-nnoremap <Leader>b <cmd>lua require'telescope.builtin'.buffers{show_all_buffers = true}<CR>
-nnoremap <Leader>gr <cmd>lua require'telescope.builtin'.live_grep{}<CR>
 
 " completion settings
 inoremap <silent><expr> <c-p> completion#trigger_completion()
@@ -222,15 +142,15 @@ let g:diagnostic_enable_underline = 0
 let g:diagnostic_sign_priority = 20
 
 
+" remove trailing whitespace on save
+fun! RemoveTrailingWhitespace()
+  let l:save = winsaveview()
+  keeppatterns %s/\s\+$//e
+  call winrestview(l:save)
+endfun
 
-" These settings are from the following Repo:
-" https://github.com/nvim-lua/completion-nvim
+augroup BIG_BLACK_BEAR
+  autocmd!
+  autocmd BufWritePre * :call RemoveTrailingWhitespace()
+augroup END
 
-" Set completeopt to have a better completion experience
-set completeopt=menuone,noinsert,noselect
-
-" hmmmm didn't do what I want
-set completeopt-=preview
-
-" Avoid showing message extra message when using completion
-set shortmess+=c

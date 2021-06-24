@@ -11,7 +11,7 @@ endif
 call plug#begin(stdpath('data'))
 
 "Snipptes
-Plug 'SirVer/ultisnips'
+"Plug 'SirVer/ultisnips'
 
 "go
 Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries' }

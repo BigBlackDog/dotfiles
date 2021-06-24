@@ -1,11 +1,21 @@
 "Plugin management
 "done with vim-plug from https://github.com/junegunn/vim-plug
 
-if ! filereadable(expand(stdpath('data') . '/site/autoload/plug.vim'))
-  echo "Downloading junegunn/vim-plug to manage plugins..."
-  silent !mkdir -p ~/.config/nvim/autoload/
-  silent !curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" > ~/.config/nvim/autoload/plug.vim
-  autocmd VimEnter * PlugInstall
+"windows and linux use different directories to store this ... or so it seems
+if has("win32")
+  if ! filereadable(expand(stdpath('data') . '/site/autoload/plug.vim'))
+    echo "Downloading junegunn/vim-plug to manage plugins..."
+    silent !mkdir -p ~/.config/nvim/autoload/
+    iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim | ni "$(@($env:XDG_DATA_HOME, $env:LOCALAPPDATA)[$null -eq $env:XDG_DATA_HOME])/nvim-data/site/autoload/plug.vim" -Force
+    autocmd VimEnter * PlugInstall
+  endif
+else
+  if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
+    echo "Downloading junegunn/vim-plug to manage plugins..."
+    silent !mkdir -p ~/.config/nvim/autoload/
+    silent !curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" > ~/.config/nvim/autoload/plug.vim
+    autocmd VimEnter * PlugInstall
+  endif
 endif
 
 call plug#begin(stdpath('data'))

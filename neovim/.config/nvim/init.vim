@@ -44,6 +44,9 @@ Plug 'tpope/vim-fugitive'
 "little helpers
 Plug 'tpope/vim-surround'
 
+"markdown
+Plug 'shushcat/vim-minimd'
+
 "statusbar
 Plug 'vim-airline/vim-airline'
 Plug 'ryanoasis/vim-devicons'

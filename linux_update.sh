@@ -14,5 +14,5 @@ cp --verbose shells/aliases $HOME/.aliases
 cp --verbose tmux/tmux.conf $HOME/.tmux.conf
 
 mkdir -p $HOME/.config/alacritty
-cp --verbose alacritty/.config/alacritty/alacritty.yml $HOME/.config/alacritty/
+cp --verbose alacritty/.config/alacritty/* $HOME/.config/alacritty/
 cp --verbose picom/.config/picom.conf $HOME/.config/

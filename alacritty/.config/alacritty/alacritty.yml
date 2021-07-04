@@ -1,7 +1,9 @@
 # Configuration for Alacritty, the GPU enhanced terminal emulator.
 
 import:
-  - /home/uh/.config/alacritty/dracula.yml
+      - /home/uh/.config/alacritty/iterm.yaml
+#   - /home/uh/.config/alacritty/gruvbox_dark.yaml
+#   - /home/uh/.config/alacritty/dracula.yml
 
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables

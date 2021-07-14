@@ -58,6 +58,9 @@ Plug 'neovim/nvim-lsp'
 "rust
 "Plug 'Chiel92/vim-autoformat'
 
+"elixir
+Plug 'elixir-editors/vim-elixir'
+
 "colors
 Plug 'https://github.com/vim-scripts/wombat256.vim.git'
 Plug 'https://github.com/cocopon/iceberg.vim.git'

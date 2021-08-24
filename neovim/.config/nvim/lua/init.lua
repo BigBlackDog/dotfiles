@@ -8,7 +8,7 @@ local on_attach_vim = function(client)
   require'completion'.on_attach(client)
 end
 
-nvim_lsp.pyls_ms.setup{on_attach=on_attach_vim_plus_keymaps}
+nvim_lsp.pyright.setup{on_attach=on_attach_vim_plus_keymaps}
 
 nvim_lsp.gopls.setup{
   on_attach=on_attach_vim,

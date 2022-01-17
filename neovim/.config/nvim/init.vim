@@ -24,10 +24,11 @@ call plug#begin(stdpath('data'))
 "Plug 'SirVer/ultisnips'
 
 "go
-Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries' }
+"Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries' }
 
 " Neovim LSP Autocompletion, Diagnostic Stuff
 Plug 'neovim/nvim-lsp'
+Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
 Plug 'nvim-lua/diagnostic-nvim'
 Plug 'steelsojka/completion-buffers'
@@ -50,13 +51,6 @@ Plug 'shushcat/vim-minimd'
 "statusbar
 Plug 'vim-airline/vim-airline'
 Plug 'ryanoasis/vim-devicons'
-
-"developers, developers, developers, ...
-Plug 'neovim/nvim-lsp'
-"Plug 'Shougo/deoplete.nvim'
-
-"rust
-"Plug 'Chiel92/vim-autoformat'
 
 "elixir
 Plug 'elixir-editors/vim-elixir'
@@ -83,6 +77,7 @@ Plug 'gruvbox-community/gruvbox'
 call plug#end()
 
 lua require 'init'
+lua require 'my-lsp-stuff'
 
 " eye-candy
 colorscheme wombat256mod

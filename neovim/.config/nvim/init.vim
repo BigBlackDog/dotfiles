@@ -29,10 +29,18 @@ call plug#begin(stdpath('data'))
 " Neovim LSP Autocompletion, Diagnostic Stuff
 Plug 'neovim/nvim-lsp'
 Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-lua/completion-nvim'
-Plug 'nvim-lua/diagnostic-nvim'
-Plug 'steelsojka/completion-buffers'
-Plug 'voldikss/vim-floaterm'
+
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/nvim-cmp' "this is like the engine
+Plug 'L3MON4D3/LuaSnip'
+Plug 'saadparwaiz1/cmp_luasnip'
+
+"Plug 'nvim-lua/completion-nvim'
+"Plug 'nvim-lua/diagnostic-nvim'
+"Plug 'steelsojka/completion-buffers'
+"Plug 'voldikss/vim-floaterm'
 
 "telescope
 Plug 'nvim-lua/plenary.nvim'
@@ -77,6 +85,7 @@ Plug 'gruvbox-community/gruvbox'
 call plug#end()
 
 lua require 'init'
+lua require 'my-cmp-stuff'
 lua require 'my-lsp-stuff'
 
 " eye-candy
@@ -111,45 +120,31 @@ inoremap <silent><expr> <TAB>
 
 " This is very important to be loaded here
 " or Tab will not work, for completion
-let g:UltiSnipsExpandTrigger = "<S-Tab>"
+"let g:UltiSnipsExpandTrigger = "<S-Tab>"
 
-autocmd BufEnter * lua require'completion'.on_attach()
+"autocmd BufEnter * lua require'completion'.on_attach()
 
 " I either want it off, or the trigger higher | default = 1
-let g:completion_trigger_keyword_length = 3
-
+"let g:completion_trigger_keyword_length = 3
 " Not Sure if I want popping Up
-let g:completion_enable_auto_popup      = 1
-
-let g:completion_enable_auto_signature  = 1
-
-let g:completion_enable_auto_hover      = 0
-
-let g:completion_matching_ignore_case   = 0
-
-let g:completion_enable_snippet         = 'UltiSnips'
-
+"let g:completion_enable_auto_popup      = 1
+"let g:completion_enable_auto_signature  = 1
+"let g:completion_enable_auto_hover      = 0
+"let g:completion_matching_ignore_case   = 0
+"let g:completion_enable_snippet         = 'UltiSnips'
 
 " :help hl-LspDiagnosticsError
-highlight LspDiagnosticsError guibg=#D7001B
+"highlight LspDiagnosticsError guibg=#D7001B
 
-let g:diagnostic_enable_virtual_text = 1
-
-let g:diagnostic_insert_delay = 1
-
-let g:diagnostic_auto_popup_while_jump = 0
-
-let g:diagnostic_virtual_text_prefix = ' '
-
-let g:diagnostic_trimmed_virtual_text = '80'
-
-let g:space_before_virtual_text = 5
-
-let g:diagnostic_show_sign = 0
-
-let g:diagnostic_enable_underline = 0
-
-let g:diagnostic_sign_priority = 20
+"let g:diagnostic_enable_virtual_text = 1
+"let g:diagnostic_insert_delay = 1
+"let g:diagnostic_auto_popup_while_jump = 0
+"let g:diagnostic_virtual_text_prefix = ' '
+"let g:diagnostic_trimmed_virtual_text = '80'
+"let g:space_before_virtual_text = 5
+"let g:diagnostic_show_sign = 0
+"let g:diagnostic_enable_underline = 0
+"let g:diagnostic_sign_priority = 20
 
 
 " remove trailing whitespace on save

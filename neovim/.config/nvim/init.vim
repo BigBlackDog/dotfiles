@@ -46,6 +46,12 @@ Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/telescope.nvim'
+Plug 'nvim-telescope/telescope-file-browser.nvim'
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+Plug 'kyazdani42/nvim-web-devicons'
+
+"live-grepping is supported by rg
+
 
 "git
 Plug 'tpope/vim-fugitive'
@@ -85,6 +91,7 @@ Plug 'gruvbox-community/gruvbox'
 call plug#end()
 
 lua require 'init'
+lua require 'my-telescope-stuff'
 lua require 'my-cmp-stuff'
 lua require 'my-lsp-stuff'
 
@@ -106,17 +113,17 @@ let g:surround_{char2nr('m')} = "\1Surround: \1\r\1\1"
 let mapleader = ","
 
 " completion settings
-inoremap <silent><expr> <c-p> completion#trigger_completion()
+"inoremap <silent><expr> <c-p> completion#trigger_completion()
 
-function! CheckBackSpace() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
+"function! CheckBackSpace() abort
+"    let col = col('.') - 1
+"    return !col || getline('.')[col - 1]  =~ '\s'
+"endfunction
 
-inoremap <silent><expr> <TAB>
-  \ pumvisible() ? "\<C-n>" :
-  \ CheckBackSpace() ? "\<TAB>" :
-  \ completion#trigger_completion()
+"inoremap <silent><expr> <TAB>
+"  \ pumvisible() ? "\<C-n>" :
+"  \ CheckBackSpace() ? "\<TAB>" :
+"  \ completion#trigger_completion()
 
 " This is very important to be loaded here
 " or Tab will not work, for completion

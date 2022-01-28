@@ -6,6 +6,9 @@ inoremap jj <ESC>
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
+" make ,mw surround the currend word with three backticks ... MONOSPACE WORD
+nmap <leader>mw viwSm```<cr>
+
 " jump around in help
 nnoremap ö <c-]>
 nnoremap Ö <c-t>

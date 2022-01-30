@@ -35,3 +35,13 @@ require'lspconfig'.elixirls.setup{
     cmd = { vim.loop.os_homedir().."/git-repos/running/elixir-ls/release/language_server.sh" };
     on_attach = setupKeymaps,
 }
+
+-- csharp
+require'lspconfig'.omnisharp.setup {
+     capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+  on_attach = function(_, bufnr)
+    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+    setupKeymaps()
+  end,
+  cmd = { "/usr/bin/omnisharp", "--languageserver" , "--hostPID", tostring(pid) },
+}

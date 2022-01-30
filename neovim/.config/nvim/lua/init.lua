@@ -38,3 +38,5 @@ vim.lsp.diagnostic.on_publish_diagnostics, {
   end,
 }
 )
+
+require('lualine').setup()

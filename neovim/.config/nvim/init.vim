@@ -63,8 +63,9 @@ Plug 'tpope/vim-surround'
 Plug 'shushcat/vim-minimd'
 
 "statusbar
-Plug 'vim-airline/vim-airline'
-Plug 'ryanoasis/vim-devicons'
+Plug 'nvim-lualine/lualine.nvim'
+"Plug 'vim-airline/vim-airline'
+"Plug 'ryanoasis/vim-devicons'
 
 "elixir
 Plug 'elixir-editors/vim-elixir'

@@ -111,7 +111,7 @@ au FileType markdown setlocal foldlevel=99
 " section
 let g:surround_{char2nr('m')} = "\1Surround: \1\r\1\1"
 
-let mapleader = ","
+let mapleader = " "
 
 " completion settings
 "inoremap <silent><expr> <c-p> completion#trigger_completion()

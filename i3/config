@@ -28,7 +28,8 @@ font xft:RobotoMono Nerd Font 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+#bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -161,6 +162,14 @@ bindsym $mod+5 workspace $ws5
 bindsym $mod+6 workspace $ws6
 bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
+bindsym $mod+KP_End workspace $ws1
+bindsym $mod+KP_Down workspace $ws2
+bindsym $mod+KP_Next workspace $ws3
+bindsym $mod+KP_Left workspace $ws4
+bindsym $mod+KP_Begin workspace $ws5
+bindsym $mod+KP_Right workspace $ws6
+bindsym $mod+KP_Home workspace $ws7
+bindsym $mod+KP_Up workspace $ws8
 
 # Move focused container to workspace
 bindsym $mod+Ctrl+1 move container to workspace $ws1
@@ -241,6 +250,8 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # Set shut down, restart and locking features
 bindsym $mod+0 mode "$mode_system"
+bindsym $mod+KP_Insert mode "$mode_system"
+
 set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id i3exit lock, mode "default"
@@ -282,6 +293,7 @@ mode "resize" {
 
 # Lock screen
 bindsym $mod+9 exec --no-startup-id blurlock
+bindsym $mod+KP_Prior exec --no-startup-id blurlock
 
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1

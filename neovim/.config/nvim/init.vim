@@ -42,6 +42,8 @@ Plug 'saadparwaiz1/cmp_luasnip'
 "Plug 'steelsojka/completion-buffers'
 "Plug 'voldikss/vim-floaterm'
 
+Plug 'sumneko/lua-language-server'
+
 "telescope
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lua/popup.nvim'

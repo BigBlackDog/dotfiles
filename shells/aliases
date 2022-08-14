@@ -10,3 +10,6 @@ alias eci3='nvim $HOME/.i3/config'
 
 alias edwork='nvim $HOME/Dropbox/texte/doing.md'
 alias edtech='nvim $HOME/Dropbox/texte/tech-doing.md'
+
+# made by lua-lsp...
+alias luamake=/home/uh/.local/share/nvim/lua-language-server/3rd/luamake/luamake

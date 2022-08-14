@@ -1,18 +1,15 @@
 #!/bin/bash
 
-mkdir -p $HOME/.config/nvim
-cp --verbose -r neovim/.config/nvim/* $HOME/.config/nvim/
+./scripting-linux/nvim-update-local.sh
 
-mkdir -p $HOME/.i3
-cp --verbose i3/config $HOME/.i3/
+./scripting-linux/i3-update-local.sh
 
-mkdir -p $HOME/.config/i3status
-cp --verbose -r i3status/.config/i3status/* $HOME/.config/i3status/
+./scripting-linux/i3status-update-local.sh
 
-cp --verbose shells/zshrc $HOME/.zshrc
-cp --verbose shells/aliases $HOME/.aliases
-cp --verbose tmux/tmux.conf $HOME/.tmux.conf
+./scripting-linux/alacritty-update-local.sh
 
-mkdir -p $HOME/.config/alacritty
-cp --verbose alacritty/.config/alacritty/* $HOME/.config/alacritty/
-cp --verbose picom/.config/picom.conf $HOME/.config/
+./scripting-linux/shells-update-local.sh
+
+./scripting-linux/tmux-update-local.sh
+
+./scripting-linux/picom-update-local.sh

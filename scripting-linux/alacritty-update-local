@@ -1,0 +1,4 @@
+#!/bin/bash
+
+mkdir -p $HOME/.config/alacritty
+cp --verbose -r $HOME/git-repos/my-repos/dotfiles/alacritty/.config/alacritty $HOME/.config/alacritty/

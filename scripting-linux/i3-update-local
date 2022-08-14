@@ -1,0 +1,4 @@
+#!/bin/bash
+
+mkdir -p $HOME/.i3
+cp --verbose -r $HOME/git-repos/my-repos/dotfiles/i3/* $HOME/.i3

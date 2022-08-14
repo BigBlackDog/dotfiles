@@ -1,0 +1,3 @@
+#!/bin/bash
+
+cp --verbose -r $HOME/.config/picom.conf $HOME/git-repos/my-repos/dotfiles/picom/.config/

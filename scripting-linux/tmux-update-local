@@ -1,0 +1,3 @@
+#!/bin/bash
+
+cp --verbose $HOME/git-repos/my-repos/dotfiles/tmux/tmux.conf $HOME/.tmux.conf

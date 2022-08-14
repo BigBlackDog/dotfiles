@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cp --verbose $HOME/.zshrc $HOME/git-repos/my-repos/dotfiles/shells/zshrc
+cp --verbose $HOME/.aliases $HOME/git-repos/my-repos/dotfiles/shells/aliases

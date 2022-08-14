@@ -1,0 +1,4 @@
+#!/bin/bash
+
+mkdir -p $HOME/.config/i3status
+cp --verbose -r $HOME/git-repos/my-repos/dotfiles/i3status/.config/i3status $HOME/.config/i3status/

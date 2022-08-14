@@ -1,0 +1,4 @@
+#!/bin/bash
+
+mkdir -p $HOME/.config/nvim
+cp --verbose -r neovim/.config/nvim/* $HOME/.config/nvim/

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+#cp --verbose -r neovim/.config/nvim/* $HOME/.config/nvim/
+cp --verbose -r $HOME/.config/nvim/ $HOME/git-repos/my-repos/dotfiles/neovim/.config
+

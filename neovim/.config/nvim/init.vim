@@ -72,6 +72,9 @@ Plug 'nvim-lualine/lualine.nvim'
 "elixir
 Plug 'elixir-editors/vim-elixir'
 
+"invisible chars ...
+Plug 'tjdevries/cyclist.vim'
+
 "colors
 Plug 'https://github.com/vim-scripts/wombat256.vim.git'
 Plug 'https://github.com/cocopon/iceberg.vim.git'

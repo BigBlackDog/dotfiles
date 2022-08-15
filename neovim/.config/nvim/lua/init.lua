@@ -8,8 +8,6 @@ local on_attach_vim = function(client)
   require'completion'.on_attach(client)
 end
 
-nvim_lsp.pyright.setup{on_attach=on_attach_vim_plus_keymaps}
-
 nvim_lsp.gopls.setup{
   on_attach=on_attach_vim,
   root_dir=nvim_lsp.util.root_pattern('.git');

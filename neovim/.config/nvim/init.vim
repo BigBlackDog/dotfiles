@@ -76,7 +76,8 @@ Plug 'elixir-editors/vim-elixir'
 Plug 'tjdevries/cyclist.vim'
 
 "colors
-Plug 'https://github.com/vim-scripts/wombat256.vim.git'
+"one day I need to ffind a replacement for this
+"Plug 'https://github.com/vim-scripts/wombat256.vim.git'
 Plug 'https://github.com/cocopon/iceberg.vim.git'
 Plug 'https://github.com/fcpg/vim-orbital.git'
 Plug 'https://github.com/Badacadabra/vim-archery'
@@ -102,7 +103,7 @@ lua require 'my-cmp-stuff'
 lua require 'my-lsp-stuff'
 
 " eye-candy
-colorscheme wombat256mod
+colorscheme gruvbox
 
 " folding
 " enable folding (https://bitcrowd.dev/folding-sections-of-markdown-in-vim)

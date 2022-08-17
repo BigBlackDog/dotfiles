@@ -3,7 +3,7 @@ vim.g.loaded_matchparen = 1
 local opt = vim.opt
 
 -- Cool floating window popup menu for completion on command line
-opt.pumblend = 17
+opt.pumblend = 0 -- everything > 0 doesn't seem to work well for me. Is it the colorscheme? Is it the Terminal?
 opt.wildmode = "longest:full"
 opt.wildoptions = "pum"
 

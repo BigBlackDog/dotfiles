@@ -28,6 +28,12 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
+" Smart way to move windows around in splits
+map <C-J> <C-W>J
+map <C-K> <C-W>K
+map <C-H> <C-W>H
+map <C-L> <C-W>L
+
 noremap <silent> <CTRL-h> :wincmd h<CR>
 noremap <silent> <CTRL-j> :wincmd j<CR>
 noremap <silent> <CTRL-k> :wincmd k<CR>

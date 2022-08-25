@@ -30,6 +30,7 @@ require('packer').startup(function(use)
   use 'tjdevries/cyclist.vim'                                                     -- Show listchars in various configurations
   use 'shushcat/vim-minimd'                                                       -- Make working with md-Files easier
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } } -- Fuzzy Finder (files, lsp, etc)
+  use 'nvim-telescope/telescope-ui-select.nvim'                                                   -- this should make Telescope be available as e.g. code-action-display
   use 'elixir-editors/vim-elixir'                                                 -- Help me editing Elixir-Stuff
 
   -- Just some more colorschemes i like
@@ -237,7 +238,14 @@ require('telescope').setup {
       },
     },
   },
+  extensions = {
+    ["ui-select"] = {
+      require("telescope.themes").get_dropdown {
+      }
+    }
+  }
 }
+require("telescope").load_extension("ui-select")
 
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')

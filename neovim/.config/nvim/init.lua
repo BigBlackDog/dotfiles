@@ -21,6 +21,7 @@ require('packer').startup(function(use)
   use 'williamboman/mason-lspconfig.nvim'                                         -- Automatically install language servers to stdpath
   use { 'hrsh7th/nvim-cmp', requires = { 'hrsh7th/cmp-nvim-lsp' } }               -- Autocompletion
   use { 'L3MON4D3/LuaSnip', requires = { 'saadparwaiz1/cmp_luasnip' } }           -- Snippet Engine and Snippet Expansion
+  use 'rafamadriz/friendly-snippets'
   use 'mjlbach/onedark.nvim'                                                      -- Theme inspired by Atom
   use 'kyazdani42/nvim-web-devicons'                                              -- Make everything look more pretty...
   use 'nvim-lualine/lualine.nvim'                                                 -- Fancier statusline
@@ -430,6 +431,7 @@ require('lspconfig').sumneko_lua.setup {
 -- nvim-cmp setup
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
+require("luasnip.loaders.from_vscode").lazy_load()
 
 cmp.setup {
   snippet = {

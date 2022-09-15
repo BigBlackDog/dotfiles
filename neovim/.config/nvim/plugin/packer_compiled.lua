@@ -84,9 +84,9 @@ _G.packer_plugins = {
     path = "/home/uh/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
-  ["blue-mood-vim.git"] = {
+  ["blue-mood-vim"] = {
     loaded = true,
-    path = "/home/uh/.local/share/nvim/site/pack/packer/start/blue-mood-vim.git",
+    path = "/home/uh/.local/share/nvim/site/pack/packer/start/blue-mood-vim",
     url = "https://github.com/lmintmate/blue-mood-vim"
   },
   ["cmp-nvim-lsp"] = {
@@ -119,9 +119,9 @@ _G.packer_plugins = {
     path = "/home/uh/.local/share/nvim/site/pack/packer/start/gruvbox",
     url = "https://github.com/gruvbox-community/gruvbox"
   },
-  ["iceberg.vim.git"] = {
+  ["iceberg.vim"] = {
     loaded = true,
-    path = "/home/uh/.local/share/nvim/site/pack/packer/start/iceberg.vim.git",
+    path = "/home/uh/.local/share/nvim/site/pack/packer/start/iceberg.vim",
     url = "https://github.com/cocopon/iceberg.vim"
   },
   ["indent-blankline.nvim"] = {
@@ -129,9 +129,9 @@ _G.packer_plugins = {
     path = "/home/uh/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
-  ["jellybeans.vim.git"] = {
+  ["jellybeans.vim"] = {
     loaded = true,
-    path = "/home/uh/.local/share/nvim/site/pack/packer/start/jellybeans.vim.git",
+    path = "/home/uh/.local/share/nvim/site/pack/packer/start/jellybeans.vim",
     url = "https://github.com/nanotech/jellybeans.vim"
   },
   ["lualine.nvim"] = {
@@ -149,9 +149,9 @@ _G.packer_plugins = {
     path = "/home/uh/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
-  ["nord-vim.git"] = {
+  ["nord-vim"] = {
     loaded = true,
-    path = "/home/uh/.local/share/nvim/site/pack/packer/start/nord-vim.git",
+    path = "/home/uh/.local/share/nvim/site/pack/packer/start/nord-vim",
     url = "https://github.com/arcticicestudio/nord-vim"
   },
   ["nvim-cmp"] = {
@@ -212,9 +212,9 @@ _G.packer_plugins = {
     path = "/home/uh/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
-  ["tender.vim.git"] = {
+  ["tender.vim"] = {
     loaded = true,
-    path = "/home/uh/.local/share/nvim/site/pack/packer/start/tender.vim.git",
+    path = "/home/uh/.local/share/nvim/site/pack/packer/start/tender.vim",
     url = "https://github.com/jacoborus/tender.vim"
   },
   ["vim-elixir"] = {

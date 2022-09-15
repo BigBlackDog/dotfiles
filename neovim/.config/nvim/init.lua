@@ -35,11 +35,11 @@ require('packer').startup(function(use)
   use 'elixir-editors/vim-elixir'                                                 -- Help me editing Elixir-Stuff
 
   -- Just some more colorschemes i like
-  use 'https://github.com/cocopon/iceberg.vim.git'
-  use 'https://github.com/jacoborus/tender.vim.git'
-  use 'https://github.com/lmintmate/blue-mood-vim.git'
-  use 'https://github.com/nanotech/jellybeans.vim.git'
-  use 'https://github.com/arcticicestudio/nord-vim.git'
+  use 'cocopon/iceberg.vim'
+  use 'jacoborus/tender.vim'
+  use 'lmintmate/blue-mood-vim'
+  use 'nanotech/jellybeans.vim'
+  use 'arcticicestudio/nord-vim'
   use 'gruvbox-community/gruvbox'
 
   -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available

@@ -12,10 +12,10 @@ require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'                                                    -- Package manager
   use 'tpope/vim-fugitive'                                                        -- Git commands in nvim
   use 'tpope/vim-rhubarb'                                                         -- Fugitive-companion to interact with github
-  use 'lewis6991/gitsigns.nvim'                                                   -- Add git related info in the signs columns and popups
+  use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.vim' } }                                                   -- Add git related info in the signs columns and popups
   use 'numToStr/Comment.nvim'                                                     -- "gc" to comment visual regions/lines
   use 'nvim-treesitter/nvim-treesitter'                                           -- Highlight, edit, and navigate code
-  use 'nvim-treesitter/nvim-treesitter-textobjects'                               -- Additional textobjects for treesitter
+  use { 'nvim-treesitter/nvim-treesitter-textobjects', after = { 'nvim-treesitter' } }                              -- Additional textobjects for treesitter
   use 'neovim/nvim-lspconfig'                                                     -- Collection of configurations for built-in LSP client
   use 'williamboman/mason.nvim'                                                   -- Automatically install language servers to stdpath
   use 'williamboman/mason-lspconfig.nvim'                                         -- Automatically install language servers to stdpath

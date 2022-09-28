@@ -12,7 +12,7 @@ require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'                                                    -- Package manager
   use 'tpope/vim-fugitive'                                                        -- Git commands in nvim
   use 'tpope/vim-rhubarb'                                                         -- Fugitive-companion to interact with github
-  use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.vim' } }                                                   -- Add git related info in the signs columns and popups
+  use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }                                                   -- Add git related info in the signs columns and popups
   use 'numToStr/Comment.nvim'                                                     -- "gc" to comment visual regions/lines
   use 'nvim-treesitter/nvim-treesitter'                                           -- Highlight, edit, and navigate code
   use { 'nvim-treesitter/nvim-treesitter-textobjects', after = { 'nvim-treesitter' } }                              -- Additional textobjects for treesitter
@@ -41,6 +41,7 @@ require('packer').startup(function(use)
   use 'nanotech/jellybeans.vim'
   use 'arcticicestudio/nord-vim'
   use 'gruvbox-community/gruvbox'
+  use 'Shatur/neovim-ayu'
 
   -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable "make" == 1 }
@@ -134,7 +135,7 @@ vim.wo.signcolumn = 'yes'
 
 -- Set colorscheme
 vim.o.termguicolors = true
-vim.cmd [[colorscheme onedark]]
+vim.cmd [[colorscheme ayu-mirage]]
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt =  "menuone,noselect,preview" 
@@ -202,7 +203,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 require('lualine').setup {
   options = {
     icons_enabled = true,
-    theme = 'onedark',
+    theme = 'ayu',
   },
 }
 

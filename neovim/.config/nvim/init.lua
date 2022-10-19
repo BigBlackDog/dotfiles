@@ -22,7 +22,7 @@ require('packer').startup(function(use)
   use { 'hrsh7th/nvim-cmp', requires = { 'hrsh7th/cmp-nvim-lsp' } }               -- Autocompletion
   use { 'L3MON4D3/LuaSnip', requires = { 'saadparwaiz1/cmp_luasnip' } }           -- Snippet Engine and Snippet Expansion
   use 'rafamadriz/friendly-snippets'
-  use 'mjlbach/onedark.nvim'                                                      -- Theme inspired by Atom
+  use 'navarasu/onedark.nvim'                                                      -- Theme inspired by Atom
   use 'kyazdani42/nvim-web-devicons'                                              -- Make everything look more pretty...
   use 'nvim-lualine/lualine.nvim'                                                 -- Fancier statusline
   use 'lukas-reineke/indent-blankline.nvim'                                       -- Add indentation guides even on blank lines

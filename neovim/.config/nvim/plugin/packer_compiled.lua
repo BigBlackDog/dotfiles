@@ -189,7 +189,7 @@ _G.packer_plugins = {
   ["onedark.nvim"] = {
     loaded = true,
     path = "/home/uh/.local/share/nvim/site/pack/packer/start/onedark.nvim",
-    url = "https://github.com/mjlbach/onedark.nvim"
+    url = "https://github.com/navarasu/onedark.nvim"
   },
   ["packer.nvim"] = {
     loaded = true,

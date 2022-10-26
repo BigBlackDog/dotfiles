@@ -33,6 +33,7 @@ require('packer').startup(function(use)
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } } -- Fuzzy Finder (files, lsp, etc)
   use 'nvim-telescope/telescope-ui-select.nvim'                                                   -- this should make Telescope be available as e.g. code-action-display
   use 'elixir-editors/vim-elixir'                                                 -- Help me editing Elixir-Stuff
+  use 'ThePrimeagen/harpoon'                                                      -- Jumping as fast as it gets...
 
   -- Just some more colorschemes i like
   use 'cocopon/iceberg.vim'
@@ -175,6 +176,16 @@ vim.keymap.set({ 'n' }, '<A-h>', '<C-w>H', { noremap = true })
 vim.keymap.set({ 'n' }, '<A-j>', '<C-w>J', { noremap = true })
 vim.keymap.set({ 'n' }, '<A-k>', '<C-w>K', { noremap = true })
 vim.keymap.set({ 'n' }, '<A-l>', '<C-w>L', { noremap = true })
+
+-- [[ harpooning ]]
+vim.keymap.set('n', '<leader>ha', require('harpoon.mark').add_file, { desc = '[H]arpoon [A]dd_file' })
+vim.keymap.set('n', '<leader>hh', require('harpoon.ui').toggle_quick_menu, { desc = '[H]arpoon s[H]ow_menu' })
+vim.keymap.set('n', '<leader>hf', function() return require('harpoon.ui').nav_file(1) end, { desc = '[H]arpoon navigate to first file[F]' })
+vim.keymap.set('n', '<leader>hf', function() return require('harpoon.ui').nav_file(2) end, { desc = '[H]arpoon navigate to second file[D]' })
+vim.keymap.set('n', '<leader>hf', function() return require('harpoon.ui').nav_file(3) end, { desc = '[H]arpoon navigate to third file[S]' })
+vim.keymap.set('n', '<leader>hf', function() return require('harpoon.ui').nav_file(4) end, { desc = '[H]arpoon navigate to fourth file[A]' })
+vim.keymap.set('n', '<leader>hu', require('harpoon.ui').nav_next, { desc = '[H]arpoon navigate next [U]' })
+vim.keymap.set('n', '<leader>hd', require('harpoon.ui').nav_prev, { desc = '[H]arpoon navigate prev [D]' })
 
 -- [[ Buffer handling - old habits die hard ]]
 vim.keymap.set({ 'n' }, '<Leader>bd', ':bd<CR>', {})

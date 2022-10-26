@@ -119,6 +119,11 @@ _G.packer_plugins = {
     path = "/home/uh/.local/share/nvim/site/pack/packer/start/gruvbox",
     url = "https://github.com/gruvbox-community/gruvbox"
   },
+  harpoon = {
+    loaded = true,
+    path = "/home/uh/.local/share/nvim/site/pack/packer/start/harpoon",
+    url = "https://github.com/ThePrimeagen/harpoon"
+  },
   ["iceberg.vim"] = {
     loaded = true,
     path = "/home/uh/.local/share/nvim/site/pack/packer/start/iceberg.vim",

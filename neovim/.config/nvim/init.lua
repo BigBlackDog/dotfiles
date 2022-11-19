@@ -7,33 +7,61 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
   vim.cmd [[packadd packer.nvim]]
 end
 
--- stylua: ignore start
 require('packer').startup(function(use)
-  use 'wbthomason/packer.nvim'                                                    -- Package manager
-  use 'tpope/vim-fugitive'                                                        -- Git commands in nvim
-  use 'tpope/vim-rhubarb'                                                         -- Fugitive-companion to interact with github
-  use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }                                                   -- Add git related info in the signs columns and popups
-  use 'numToStr/Comment.nvim'                                                     -- "gc" to comment visual regions/lines
-  use 'nvim-treesitter/nvim-treesitter'                                           -- Highlight, edit, and navigate code
-  use { 'nvim-treesitter/nvim-treesitter-textobjects', after = { 'nvim-treesitter' } }                              -- Additional textobjects for treesitter
-  use 'neovim/nvim-lspconfig'                                                     -- Collection of configurations for built-in LSP client
-  use 'williamboman/mason.nvim'                                                   -- Automatically install language servers to stdpath
-  use 'williamboman/mason-lspconfig.nvim'                                         -- Automatically install language servers to stdpath
-  use { 'hrsh7th/nvim-cmp', requires = { 'hrsh7th/cmp-nvim-lsp' } }               -- Autocompletion
-  use { 'L3MON4D3/LuaSnip', requires = { 'saadparwaiz1/cmp_luasnip' } }           -- Snippet Engine and Snippet Expansion
-  use 'rafamadriz/friendly-snippets'
+  -- Package manager
+  use 'wbthomason/packer.nvim'
+
+  use { -- LSP Configuration & Plugins
+    'neovim/nvim-lspconfig',
+    requires = {
+      -- Automatically install LSPs to stdpath for neovim
+      'williamboman/mason.nvim',
+      'williamboman/mason-lspconfig.nvim',
+
+      -- Useful status updates for LSP
+      'j-hui/fidget.nvim',
+    },
+  }
+
+  use { -- Autocompletion
+    'hrsh7th/nvim-cmp',
+    requires = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
+  }
+
+  use { -- Highlight, edit, and navigate code
+    'nvim-treesitter/nvim-treesitter',
+    run = function()
+      pcall(require('nvim-treesitter.install').update { with_sync = true })
+    end,
+  }
+
+  use { -- Additional text objects via treesitter
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    after = 'nvim-treesitter',
+  }
+
+  -- Git related plugins
+  use 'tpope/vim-fugitive'
+  use 'tpope/vim-rhubarb'
+  use 'lewis6991/gitsigns.nvim'
+
   use 'navarasu/onedark.nvim'                                                      -- Theme inspired by Atom
-  use 'kyazdani42/nvim-web-devicons'                                              -- Make everything look more pretty...
   use 'nvim-lualine/lualine.nvim'                                                 -- Fancier statusline
   use 'lukas-reineke/indent-blankline.nvim'                                       -- Add indentation guides even on blank lines
+  use 'numToStr/Comment.nvim'                                                     -- "gc" to comment visual regions/lines
   use 'tpope/vim-sleuth'                                                          -- Detect tabstop and shiftwidth automatically
-  use 'tpope/vim-surround'                                                        -- Make surrounding textobjects easier
-  use 'tjdevries/cyclist.vim'                                                     -- Show listchars in various configurations
-  use 'shushcat/vim-minimd'                                                       -- Make working with md-Files easier
+
+  -- Fuzzy Finder (files, lsp, etc)
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } } -- Fuzzy Finder (files, lsp, etc)
-  use 'nvim-telescope/telescope-ui-select.nvim'                                                   -- this should make Telescope be available as e.g. code-action-display
-  use 'elixir-editors/vim-elixir'                                                 -- Help me editing Elixir-Stuff
+
+  -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
+
+  -- blazing fast buffer switching
   use 'ThePrimeagen/harpoon'                                                      -- Jumping as fast as it gets...
+
+  -- Eye-Candy
+  use 'kyazdani42/nvim-web-devicons'                                              -- Make everything look more pretty...
 
   -- Just some more colorschemes i like
   use 'cocopon/iceberg.vim'
@@ -44,14 +72,24 @@ require('packer').startup(function(use)
   use 'gruvbox-community/gruvbox'
   use 'Shatur/neovim-ayu'
 
-  -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
-  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable "make" == 1 }
+  -- Elixir
+  use 'elixir-editors/vim-elixir'                                                 -- Help me editing Elixir-Stuff
+
+  -- Markdown
+  use 'shushcat/vim-minimd'                                                       -- Make working with md-Files easier
+
+  -- other stuff
+  use 'tjdevries/cyclist.vim'                                                     -- Show listchars in various configurations
+  -- use 'rafamadriz/friendly-snippets'
+  -- use 'tpope/vim-surround'                                                        -- Make surrounding textobjects easier
+
+  -- Don't remember where this came from ... 
+  -- use 'nvim-telescope/telescope-ui-select.nvim'                                                   -- this should make Telescope be available as e.g. code-action-display
 
   if is_bootstrap then
     require('packer').sync()
   end
 end)
--- stylua: ignore end
 
 -- When we are bootstrapping a configuration, it doesn't
 -- make sense to execute the rest of the init.lua.
@@ -251,14 +289,15 @@ require('telescope').setup {
       },
     },
   },
-  extensions = {
-    ["ui-select"] = {
-      require("telescope.themes").get_dropdown {
-      }
-    }
-  }
+  -- extensions = {
+  --   ["ui-select"] = {
+  --     require("telescope.themes").get_dropdown {
+  --     }
+  --   }
+  -- }
 }
-require("telescope").load_extension("ui-select")
+
+-- require("telescope").load_extension("ui-select")
 
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
@@ -293,7 +332,6 @@ require('nvim-treesitter.configs').setup {
     keymaps = {
       init_selection = '<c-space>',
       node_incremental = '<c-space>',
-      -- TODO: I'm not sure for this one.
       scope_incremental = '<c-s>',
       node_decremental = '<c-backspace>',
     },
@@ -370,7 +408,7 @@ local on_attach = function(_, bufnr)
 
   nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
   nmap('gi', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
-  nmap('gr', require('telescope.builtin').lsp_references)
+  nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
   nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
   nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
 
@@ -391,9 +429,6 @@ local on_attach = function(_, bufnr)
   vim.api.nvim_buf_create_user_command(bufnr, 'Format', vim.lsp.buf.format or vim.lsp.buf.formatting, { desc = 'Format current buffer with LSP' })
 end
 
--- nvim-cmp supports additional completion capabilities
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
 -- Setup mason so it can manage external tooling
 require('mason').setup()
 
@@ -405,12 +440,19 @@ require('mason-lspconfig').setup {
   ensure_installed = servers,
 }
 
+-- nvim-cmp supports additional completion capabilities
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+
 for _, lsp in ipairs(servers) do
   require('lspconfig')[lsp].setup {
     on_attach = on_attach,
     capabilities = capabilities,
   }
 end
+
+-- Turn on status information
+require('fidget').setup()
 
 -- Example custom configuration for lua
 --
@@ -433,7 +475,10 @@ require('lspconfig').sumneko_lua.setup {
       diagnostics = {
         globals = { 'vim' },
       },
-      workspace = { library = vim.api.nvim_get_runtime_file('', true) },
+      workspace = {
+        library = vim.api.nvim_get_runtime_file('', true),
+        checkThirdParty = false,
+      },
       -- Do not send telemetry data containing a randomized but unique identifier
       telemetry = { enable = false, },
     },
@@ -443,7 +488,7 @@ require('lspconfig').sumneko_lua.setup {
 -- nvim-cmp setup
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
-require("luasnip.loaders.from_vscode").lazy_load()
+-- require("luasnip.loaders.from_vscode").lazy_load()
 
 cmp.setup {
   snippet = {

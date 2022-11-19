@@ -104,10 +104,10 @@ _G.packer_plugins = {
     path = "/home/uh/.local/share/nvim/site/pack/packer/start/cyclist.vim",
     url = "https://github.com/tjdevries/cyclist.vim"
   },
-  ["friendly-snippets"] = {
+  ["fidget.nvim"] = {
     loaded = true,
-    path = "/home/uh/.local/share/nvim/site/pack/packer/start/friendly-snippets",
-    url = "https://github.com/rafamadriz/friendly-snippets"
+    path = "/home/uh/.local/share/nvim/site/pack/packer/start/fidget.nvim",
+    url = "https://github.com/j-hui/fidget.nvim"
   },
   ["gitsigns.nvim"] = {
     loaded = true,
@@ -214,11 +214,6 @@ _G.packer_plugins = {
     path = "/home/uh/.local/share/nvim/site/pack/packer/opt/telescope-fzf-native.nvim",
     url = "https://github.com/nvim-telescope/telescope-fzf-native.nvim"
   },
-  ["telescope-ui-select.nvim"] = {
-    loaded = true,
-    path = "/home/uh/.local/share/nvim/site/pack/packer/start/telescope-ui-select.nvim",
-    url = "https://github.com/nvim-telescope/telescope-ui-select.nvim"
-  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/uh/.local/share/nvim/site/pack/packer/start/telescope.nvim",
@@ -253,11 +248,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/uh/.local/share/nvim/site/pack/packer/start/vim-sleuth",
     url = "https://github.com/tpope/vim-sleuth"
-  },
-  ["vim-surround"] = {
-    loaded = true,
-    path = "/home/uh/.local/share/nvim/site/pack/packer/start/vim-surround",
-    url = "https://github.com/tpope/vim-surround"
   }
 }
 

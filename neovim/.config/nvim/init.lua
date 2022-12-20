@@ -20,6 +20,9 @@ require('packer').startup(function(use)
 
       -- Useful status updates for LSP
       'j-hui/fidget.nvim',
+
+      -- Additional lua configuration, makes nvim stuff amazing
+      'folke/neodev.nvim',
     },
   }
 
@@ -442,6 +445,9 @@ local on_attach = function(_, bufnr)
     end
   end, { desc = 'Format current buffer with LSP' })
 end
+
+-- Setup neovim lua configuration
+require('neodev').setup()
 
 -- Setup mason so it can manage external tooling
 require('mason').setup()

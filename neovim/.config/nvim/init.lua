@@ -54,7 +54,7 @@ require('packer').startup(function(use)
   use 'numToStr/Comment.nvim'                                                     -- "gc" to comment visual regions/lines
   use 'tpope/vim-sleuth'                                                          -- Detect tabstop and shiftwidth automatically
 
--- Fuzzy Finder (files, lsp, etc)
+  -- Fuzzy Finder (files, lsp, etc)
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } } -- Fuzzy Finder (files, lsp, etc)
 
   -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
@@ -342,24 +342,24 @@ require('nvim-treesitter.configs').setup {
       init_selection = '<c-space>',
       node_incremental = '<c-space>',
       scope_incremental = '<c-s>',
-node_decremental = '<c-backspace>',
+      node_decremental = '<c-backspace>',
     },
   },
   textobjects = {
     select = {
-  enable = true,
-lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
+      enable = true,
+      lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
       keymaps = {
         -- You can use the capture groups defined in textobjects.scm
         ['aa'] = '@parameter.outer',
-['ia'] = '@parameter.inner',
+        ['ia'] = '@parameter.inner',
         ['af'] = '@function.outer',
         ['if'] = '@function.inner',
         ['ac'] = '@class.outer',
-['ic'] = '@class.inner',
+        ['ic'] = '@class.inner',
       },
     },
-move = {
+    move = {
       enable = true,
       set_jumps = true, -- whether to set jumps in the jumplist
       goto_next_start = {
@@ -384,9 +384,9 @@ move = {
       swap_next = {
         ['<leader>a'] = '@parameter.inner',
       },
-swap_previous = {
+      swap_previous = {
         ['<leader>A'] = '@parameter.inner',
-},
+      },
     },
   },
 }
@@ -403,7 +403,7 @@ local on_attach = function(_, bufnr)
   -- NOTE: Remember that lua is a real programming language, and as such it is possible
   -- to define small helper and utility functions so you don't have to repeat yourself
   -- many times.
---
+  --
   -- In this case, we create a function that lets us more easily define mappings specific
   -- for LSP related items. It sets the mode, buffer and description for us each time.
   local nmap = function(keys, func, desc)

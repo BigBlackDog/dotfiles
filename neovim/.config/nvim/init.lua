@@ -452,13 +452,13 @@ table.insert(runtime_path, 'lua/?.lua')
 table.insert(runtime_path, 'lua/?/init.lua')
 
 -- Enable the following language servers
-local servers = { 
+local servers = {
   clangd = {},
-  rust_analyzer = {}, 
+  rust_analyzer = {},
   elixirls = {},
   omnisharp = {},
   gopls = {},
-  sumneko_lua = { 
+  lua_ls = {
     Lua = {
       runtime = {
         -- Tell the language server which version of Lua you're using (most likely LuaJIT)

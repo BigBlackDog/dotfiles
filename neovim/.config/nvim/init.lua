@@ -190,8 +190,9 @@ require('lazy').setup({
   --    to get rid of the warning telling you that there are not plugins in `lua/custom/plugins/`.
 
   require 'custom.plugins.colorschemes',
+  require 'custom.plugins.init',
 
-  -- { import = 'custom.plugins' },
+  --   { import = 'custom.plugins' },
 }, {})
 
 -- [[ Setting options ]]
@@ -237,6 +238,7 @@ vim.o.completeopt = 'menuone,noselect'
 vim.o.termguicolors = true
 
 -- [[ Basic Keymaps ]]
+require 'custom.maps'
 
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`

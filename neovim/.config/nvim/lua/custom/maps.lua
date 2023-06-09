@@ -2,13 +2,6 @@
 vim.keymap.set({ 'v' }, 'J', ":m '>+1<CR>gv=gv", { noremap = true })
 vim.keymap.set({ 'v' }, 'K', ":m '<-2<CR>gv=gv", { noremap = true })
 
--- [[ Keymaps working with splits ]]
--- move focus between splits
-vim.keymap.set({ 'n' }, '<C-h>', '<C-w>h', { noremap = true })
-vim.keymap.set({ 'n' }, '<C-j>', '<C-w>j', { noremap = true })
-vim.keymap.set({ 'n' }, '<C-k>', '<C-w>k', { noremap = true })
-vim.keymap.set({ 'n' }, '<C-l>', '<C-w>l', { noremap = true })
-
 -- move windows between splits
 vim.keymap.set({ 'n' }, '<A-h>', '<C-w>H', { noremap = true })
 vim.keymap.set({ 'n' }, '<A-j>', '<C-w>J', { noremap = true })

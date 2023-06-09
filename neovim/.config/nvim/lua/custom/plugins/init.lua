@@ -7,5 +7,6 @@ return
     {'tjdevries/cyclist.vim'},
     {'rafamadriz/friendly-snippets', config = function()
       require("luasnip.loaders.from_vscode").lazy_load()
-    end}
+    end},
+    {'christoomey/vim-tmux-navigator', lazy = false},
   }

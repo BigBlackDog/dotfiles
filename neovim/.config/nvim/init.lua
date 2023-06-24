@@ -313,7 +313,7 @@ vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { de
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
   -- Add languages to be installed here that you want installed for treesitter
-  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'typescript', 'vimdoc', 'vim' },
+  ensure_installed = { 'c_sharp', 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'typescript', 'vimdoc', 'vim' },
 
   -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
   auto_install = false,
@@ -383,7 +383,7 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 
 --  [[ Configure LSP ]]
 --  This function gets run when an LSP connects to a particular buffer.
-local on_attach = function(_, bufnr)
+local on_attach = function(client, bufnr)
   -- NOTE: Remember that lua is a real programming language, and as such it is possible
   -- to define small helper and utility functions so you don't have to repeat yourself
   -- many times.
@@ -424,6 +424,22 @@ local on_attach = function(_, bufnr)
   vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
     vim.lsp.buf.format()
   end, { desc = 'Format current buffer with LSP' })
+
+
+  -- There seems to be an Error in Omnisharp handling the tokens
+  -- I've taken this snippet from https://github.com/OmniSharp/omnisharp-roslyn/issues/2483
+  if client.name == 'omnisharp' then
+    local tokenModifiers = client.server_capabilities.semanticTokensProvider.legend.tokenModifiers
+    for i, v in ipairs(tokenModifiers) do
+      local tmp = string.gsub(v, ' ', '_')
+      tokenModifiers[i] = string.gsub(tmp, '-_', '')
+    end
+    local tokenTypes = client.server_capabilities.semanticTokensProvider.legend.tokenTypes
+    for i, v in ipairs(tokenTypes) do
+      local tmp = string.gsub(v, ' ', '_')
+      tokenTypes[i] = string.gsub(tmp, '-_', '')
+    end
+  end
 end
 
 -- Enable the following language servers

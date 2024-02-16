@@ -1,6 +1,6 @@
 return
   {
-    {'ThePrimeagen/harpoon', lazy = true},
+    {'ThePrimeagen/harpoon', branch = "harpoon2", dependencies = "nvim-lua/plenary.nvim", lazy = true},
     {'elixir-editors/vim-elixir', lazy = true},
     {'kyazdani42/nvim-web-devicons'},
     {'shushcat/vim-minimd'},

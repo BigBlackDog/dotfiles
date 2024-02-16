@@ -14,8 +14,8 @@ vim.keymap.set({ 'n' }, '<leader>hh', require('harpoon.ui').toggle_quick_menu, {
 vim.keymap.set({ 'n' }, '<leader>hf', function() return require('harpoon.ui').nav_file(1) end, { desc = '[H]arpoon navigate to first file[F]' })
 vim.keymap.set({ 'n' }, '<leader>hd', function() return require('harpoon.ui').nav_file(2) end, { desc = '[H]arpoon navigate to second file[D]' })
 vim.keymap.set({ 'n' }, '<leader>hs', function() return require('harpoon.ui').nav_file(3) end, { desc = '[H]arpoon navigate to third file[S]' })
-vim.keymap.set({ 'n' }, '<leader>hu', require('harpoon.ui').nav_next, { desc = '[H]arpoon navigate next [U]' })
-vim.keymap.set({ 'n' }, '<leader>hr', require('harpoon.ui').nav_prev, { desc = '[H]arpoon navigate prev [R]' })
+vim.keymap.set({ 'n' }, '<C-j>', require('harpoon.ui').nav_next, { desc = '[H]arpoon navigate next [U]' })
+vim.keymap.set({ 'n' }, '<C-k>', require('harpoon.ui').nav_prev, { desc = '[H]arpoon navigate prev [R]' })
 
 -- [[ Buffer handling - old habits die hard ]]
 vim.keymap.set({ 'n' }, '<Leader>bd', ':bd<CR>', {})

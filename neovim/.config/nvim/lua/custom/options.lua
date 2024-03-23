@@ -1,11 +1,12 @@
-function ApplyColors(colorscheme)
-    colorscheme = colorscheme or "ayu-mirage"
-
-    vim.cmd.colorscheme(colorscheme)
-    vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-    vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-end
--- stolen from tjdevries 
+-- function ApplyColors(colorscheme)
+-- 	colorscheme = colorscheme or "ayu-mirage"
+--
+-- 	vim.cmd.colorscheme("ayu-mirage")
+-- 	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+-- 	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+-- end
+--
+-- stolen from tjdevries
 vim.opt.showmode = false -- mode is shown with lualine
 vim.opt.showcmd = false -- not sure about this one
 
@@ -47,8 +48,8 @@ vim.opt.belloff = "all" -- Just turn the dang bell off
 vim.opt.diffopt = { "internal", "filler", "closeoff", "hiddenoff", "algorithm:minimal" }
 
 -- Set colorscheme
-ApplyColors('ayu-mirage')
+--ApplyColors("ayu-mirage")
 
 -- Set completeopt to have a better completion experience
 -- preview is additional to kickstart ... have to read up on the difference again
-vim.o.completeopt =  "menuone,noselect,preview"
+vim.o.completeopt = "menuone,noselect,preview"

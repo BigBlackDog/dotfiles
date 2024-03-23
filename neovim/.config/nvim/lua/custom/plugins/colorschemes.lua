@@ -1,60 +1,59 @@
 return {
-  {
-    "Shatur/neovim-ayu",
-    lazy = true,
-    },
+	-- {
+	-- 	"Shatur/neovim-ayu",
+	-- 	lazy = false,
+	-- },
 
-  { -- Theme inspired by Atom
-    'navarasu/onedark.nvim',
-    lazy = true,
-  },
+	{ -- Theme inspired by Atom
+		"navarasu/onedark.nvim",
+		lazy = true,
+	},
 
-  {
-    "folke/tokyonight.nvim",
-    lazy = true,
-    opts = { style = "moon" },
-  },
+	{
+		"folke/tokyonight.nvim",
+		lazy = true,
+		opts = { style = "moon" },
+	},
 
-  {
-    "gruvbox-community/gruvbox",
-    lazy = true,
-    name = "gruvbox",
-  },
+	{
+		"gruvbox-community/gruvbox",
+		lazy = true,
+		name = "gruvbox",
+	},
 
-  {
-    "arcticicestudio/nord-vim",
-    lazy = true,
-    name = "nord",
-  },
+	{
+		"arcticicestudio/nord-vim",
+		lazy = true,
+		name = "nord",
+	},
 
-  {
-    "nanotech/jellybeans.vim",
-    lazy = true,
-    name = "jellybeans",
-  },
+	{
+		"nanotech/jellybeans.vim",
+		lazy = true,
+		name = "jellybeans",
+	},
 
-  {
-    "lmintmate/blue-mood-vim",
-    lazy = true,
-    name = "blue-mood",
-  },
+	{
+		"lmintmate/blue-mood-vim",
+		lazy = true,
+		name = "blue-mood",
+	},
 
-  {
-    "jacoborus/tender.vim",
-    lazy = true,
-    name = "tender",
-  },
+	{
+		"jacoborus/tender.vim",
+		lazy = true,
+		name = "tender",
+	},
 
-  {
-    "cocopon/iceberg.vim",
-    lazy = true,
-    name = "iceberg",
-  },
+	{
+		"cocopon/iceberg.vim",
+		lazy = true,
+		name = "iceberg",
+	},
 
-  {
-    "catppuccin/nvim",
-    lazy = true,
-    name = "catppuccin",
-  },
-
+	{
+		"catppuccin/nvim",
+		lazy = true,
+		name = "catppuccin",
+	},
 }

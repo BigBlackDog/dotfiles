@@ -1,4 +1,4 @@
 #!/bin/bash
-
-cp --verbose -r $HOME/.config/nvim/ $HOME/git-repos/my-repos/dotfiles/neovim/.config
-
+shopt -s globstar
+cp --verbose $HOME/.config/nvim/**/*.lua $HOME/git-repos/my-repos/dotfiles/neovim/.config
+cp --verbose $HOME/.config/nvim/**/*.md $HOME/git-repos/my-repos/dotfiles/neovim/.config
